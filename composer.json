@@ -1,0 +1,23 @@
+{
+  "name": "usuario/app-salon_php_mvc_js_sass",
+  "description": "Proyecto PHP 8, MVC,SASS, GULP",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "MVC\\": "./",
+      "Controllers\\": "./controllers",
+      "Model\\": "./Models",
+      "Classes\\": "./classes"
+    }
+  },
+  "authors": [
+    {
+      "name": "DavidBC0299",
+      "email": "dbautistac2@miumg.edu.gt"
+    }
+  ],
+  "require": {
+    "phpmailer/phpmailer": "^7.0",
+    "vlucas/phpdotenv": "^5.6"
+  }
+}
