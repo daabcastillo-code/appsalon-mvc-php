@@ -1,0 +1,30 @@
+source: https://github.com/daabcastillo-code/appsalon-mvc-php
+features:
+  - "php 8.3"
+  - mysql
+  - ssl
+  - "ssl always"
+root: public_html/public
+nginx:
+  fastcgi: "on"
+  locations:
+    - match: /
+      try_files: "$uri $uri/ /index.php$is_args$args"
+    - match: '~ \.[^\/]+(?<!\.php)$'
+      try_files: "$uri =404"
+commands:
+  - 'echo "<?php phpinfo(15);" > phpinfo.php'
+  - 'echo "display_errors = On" > .user.ini'
+  - 'echo "display_startup_errors = On" >> .user.ini'
+  - 'echo "DB_HOST=localhost" > includes/.env'
+  - 'echo "DB_USER=${USERNAME}" >> includes/.env'
+  - 'echo "DB_PASS=${PASSWORD}" >> includes/.env'
+  - 'echo "DB_NAME=${DATABASE}" >> includes/.env'
+  - 'echo "" >> includes/.env'
+  - 'echo "EMAIL_HOST=tuserver" >> includes/.env'
+  - 'echo "EMAIL_USER=user" >> includes/.env'
+  - 'echo "EMAIL_PASSWORD=password" >> includes/.env'
+  - 'echo "EMAIL_PORT=2525" >> includes/.env'
+  - 'echo "" >> includes/.env'
+  - 'echo "APP_URL=https://${DOMAIN}" >> includes/.env'
+  - "composer install"
