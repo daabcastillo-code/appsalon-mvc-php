@@ -33,7 +33,8 @@ class Servicio extends ActiveRecord{
         if(!empty($existe) && (!$this->id || $existe[0]->id != $this->id)) {
             static::setAlerta('error', 'Ya existe un servicio con este nombre');
 
-        return self::$alertas;
     }
+        return self::$alertas;
+
 }
 }
